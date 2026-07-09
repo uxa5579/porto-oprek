@@ -206,7 +206,7 @@ function Hero({ onChange }) {
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
           >
             <video
-              src="/hero.mp4"
+              src={import.meta.env.BASE_URL + "hero.mp4"}
               className="absolute inset-0 h-full w-full scale-125 object-cover"
               autoPlay
               muted
@@ -279,7 +279,7 @@ function Testimonials() {
   const vidRef = useRef(null)
   const media = testimonials[idx]
   const isVideo = media.endsWith('.mp4')
-  const src = `/testimonials/${media}`
+  const src = import.meta.env.BASE_URL + "testimonials/" + media
 
   useEffect(() => {
     if (vidRef.current) {
@@ -639,7 +639,7 @@ export default function App() {
       {page > 0 && <NavButton dir="prev" onClick={prev} />}
       {page < pages.length - 1 && <NavButton dir="next" onClick={next} />}
 
-      <audio ref={audioRef} src="/toronto.mp3" loop />
+      <audio ref={audioRef} src={import.meta.env.BASE_URL + "toronto.mp3"} loop />
     </motion.main>
     </>
   )
